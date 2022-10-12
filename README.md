@@ -50,3 +50,6 @@ Frontend for the easy password manager:
 - All encryption happens on the frontend side using the web crypto apis.
     - the original password is hashed to sha256 and sent to the server. The server store the sha256 password using bcrypt.
     - the original password is hashed to PBKDF2 and this is used to derive a AES-GCM key for the encryption.
+
+- bakcend repo:
+  https://github.com/hel-o/api-ez-pwd
