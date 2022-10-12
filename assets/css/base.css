@@ -1,0 +1,47 @@
+@import "bootstrap";
+
+html,
+body {
+  font-size: 14px;
+  --bs-body-bg: var(--bs-gray-100);
+}
+
+.row {
+  --bs-gutter-x: 0.5rem;
+}
+
+.col-wrapper {
+  background-color: #ffffff;
+  border: 0 solid #edf2f9;
+  border-radius: .375rem;
+  box-shadow: 0 7px 14px 0 rgba(65,69,88,.1),0 3px 6px 0 rgba(0,0,0,.07);
+}
+
+.form-control, .form-select {
+  padding: .25rem .55rem;
+}
+
+.form-control:focus, .form-select:focus {
+  box-shadow: none;
+}
+
+.form-label {
+  margin-bottom: 0.2rem;
+}
+
+.btn[disabled] {
+  cursor: wait;
+}
+
+.table {
+  text-align: center;
+  font-size: 0.9rem;
+}
+.table th, .table td {
+  padding: 0.3rem;
+}
+
+.required-label:after {
+  color: red;
+  content: ' *';
+}
