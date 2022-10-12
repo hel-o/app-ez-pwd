@@ -4,6 +4,7 @@ import axios from 'axios';
 import EditPwdFormModal from '../../components/pwd/EditPwdFormModal.vue';
 import {decryptArrayValue} from '../../assets/js/crypto.js';
 import ViewDecryptedDataModal from '../../components/pwd/ViewDecryptedDataModal.vue';
+import DeleteSecretConfirmationModal from '../../components/pwd/DeleteSecretConfirmationModal.vue';
 
 definePageMeta({
   middleware: ['auth']
@@ -16,6 +17,11 @@ useHead({
 const editPwdFormModalObj = ref();
 const showEditPwdFormModal = (e, secretId) => {
   editPwdFormModalObj.value.showModal(secretId);
+};
+
+const deleteSecretConfirmationModalObj = ref();
+const showDeleteSecretConfirmationModal = (secretId, description, username) => {
+  deleteSecretConfirmationModalObj.value.showModal(secretId, description, username);
 };
 
 const viewDecryptedDataModalObj = ref();
@@ -88,11 +94,12 @@ onUnmounted(() => {
                 <th>Note</th>
                 <th>URL</th>
                 <th>#</th>
+                <th>#</th>
               </tr>
             </thead>
             <tbody>
               <tr v-show="!itemsUserSecrets.length">
-                <td colspan="6">-</td>
+                <td colspan="7">-</td>
               </tr>
               <tr v-for="item in itemsUserSecrets">
                 <td>{{ item.description || '-' }}</td>
@@ -122,6 +129,9 @@ onUnmounted(() => {
                 <td>
                   <a href="javascript:" class="btn btn-success btn-sm" @click="showEditPwdFormModal($event, item.id)">Edit</a>
                 </td>
+                <td>
+                  <a href="javascript:" class="btn btn-outline-danger btn-sm" @click="showDeleteSecretConfirmationModal(item.id, item.description, item.username)" title="Delete the secret">Del</a>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -130,5 +140,6 @@ onUnmounted(() => {
     </div>
     <edit-pwd-form-modal ref="editPwdFormModalObj" @on-new-user-secret="listUserSecrets"></edit-pwd-form-modal>
     <view-decrypted-data-modal ref="viewDecryptedDataModalObj" />
+    <delete-secret-confirmation-modal ref="deleteSecretConfirmationModalObj" @on-secret-deleted="listUserSecrets" />
   </div>
 </template>
