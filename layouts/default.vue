@@ -17,6 +17,9 @@ definePageMeta({
             <li class="nav-item">
               <nuxt-link to="/i/" class="nav-link active">Home</nuxt-link>
             </li>
+            <li class="nav-item">
+              <nuxt-link to="/i/backup/" class="nav-link active">Backup</nuxt-link>
+            </li>
           </ul>
         </div>
       </div>
