@@ -20,6 +20,7 @@ export function generateAESGCM256Key (keyMaterial, salt) {
 export function encryptPlainText(password, textValue, callback) {
   if (!textValue || textValue.length === 0) {
     callback({ encrypted: [], salt: [], iv: [] });
+    return;
   }
 
   const salt = crypto.getRandomValues(new Uint8Array(16));
@@ -44,6 +45,7 @@ export function encryptPlainText(password, textValue, callback) {
 export function decryptArrayValue (password, { arrayEncrypted, arraySalt, arrayIv }, callback) {
   if (!arrayEncrypted || !arrayEncrypted.length) {
     callback('');
+    return;
   }
 
   generateKeyFromPassword(password).then((keyMaterial) => {
