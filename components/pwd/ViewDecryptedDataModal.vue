@@ -61,7 +61,7 @@ defineExpose({
         <div class="modal-body">
           <form class="my-4">
             <div v-show="flagAsTextArea">
-              <textarea ref="textareaDecryptedValue" rows="12" class="form-control" readonly>{{ refTextValue }}</textarea>
+              <textarea ref="textareaDecryptedValue" rows="25" class="form-control" readonly>{{ refTextValue }}</textarea>
             </div>
             <div v-show="!flagAsTextArea">
               <input ref="inputDecryptedValue" type="text" class="form-control text-center" :value="refTextValue" readonly>

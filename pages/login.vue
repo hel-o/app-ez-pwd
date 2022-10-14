@@ -86,7 +86,7 @@ const showPassword = (e)=> {
 <template>
   <div>
     <div class="row justify-content-center">
-      <div class="col col-lg-3 col-wrapper p-3">
+      <div class="col col-lg-6 col-wrapper p-3">
 
         <div v-show="flagShowSuccessCreatedAccount" class="alert alert-success text-center">Your new account has been created!</div>
 

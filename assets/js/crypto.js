@@ -42,6 +42,10 @@ export function encryptPlainText(password, textValue, callback) {
 }
 
 export function decryptArrayValue (password, { arrayEncrypted, arraySalt, arrayIv }, callback) {
+  if (!arrayEncrypted || !arrayEncrypted.length) {
+    callback('');
+  }
+
   generateKeyFromPassword(password).then((keyMaterial) => {
     const salt = Uint8Array.from(arraySalt);
     generateAESGCM256Key(keyMaterial, salt).then((key) => {
